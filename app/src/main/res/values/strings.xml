@@ -4,4 +4,6 @@
 
 
     <string name="APIKEY">4c8002abab8fce9c2570330dcfbd47dd</string>
+    <string name="details_label">Details</string>
+    <string name="popular_movies">PopMovies</string>
 </resources>
