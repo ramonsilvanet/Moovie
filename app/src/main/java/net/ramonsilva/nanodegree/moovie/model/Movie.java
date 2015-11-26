@@ -12,6 +12,7 @@ public class Movie {
     private String duration;
     private double rating;
     private String overview;
+    private String originalTitle;
 
 
     public String getPosterUrl(){
@@ -68,5 +69,13 @@ public class Movie {
 
     public void setOverview(String overview) {
         this.overview = overview;
+    }
+
+    public String getOriginalTitle() {
+        return originalTitle;
+    }
+
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
     }
 }

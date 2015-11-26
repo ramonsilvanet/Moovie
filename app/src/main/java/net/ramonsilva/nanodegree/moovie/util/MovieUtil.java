@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class MovieUtil {
     private final static String BASE_URL = "http://image.tmdb.org/t/p/";
-    private final static String TAMANHO_POSTER = "w500";
+    private final static String TAMANHO_POSTER = "w185";
 
 
     public static ArrayList<Movie> getMovies(String moviesJsonStr) throws JSONException {
@@ -46,6 +46,10 @@ public class MovieUtil {
         m.setRating(json.getDouble("vote_average"));
 
         m.setOverview(json.getString("overview"));
+
+        if(json.has("original_title")){
+            m.setOriginalTitle(json.getString("original_title"));
+        }
 
         if(json.has("runtime")){
             m.setDuration(json.getString("runtime"));

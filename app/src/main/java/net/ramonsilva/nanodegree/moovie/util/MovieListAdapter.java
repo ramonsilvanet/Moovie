@@ -56,6 +56,8 @@ public class MovieListAdapter extends ArrayAdapter<Movie> {
                 .with(context)
                 .load(movie.getPosterUrl())
                 .fit()
+                .placeholder(R.drawable.progress_animation)
+                .error(R.drawable.ic_cartaz_placeholder)
                 .into((ImageView) convertView);
 
         return convertView;
