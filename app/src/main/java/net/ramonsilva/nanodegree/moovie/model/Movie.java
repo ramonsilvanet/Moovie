@@ -13,6 +13,7 @@ public class Movie {
     private double rating;
     private String overview;
     private String originalTitle;
+    private String genre;
 
 
     public String getPosterUrl(){
@@ -77,5 +78,13 @@ public class Movie {
 
     public void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
+    }
+
+    public void setGenre(String genre){
+        this.genre = genre;
+    }
+
+    public String getGenre(){
+        return genre;
     }
 }

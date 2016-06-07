@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import android.util.Log;
 
 /**
  * Created by Rfsilva on 25/11/2015.
@@ -20,6 +21,8 @@ public class MovieUtil {
 
         JSONObject result = new JSONObject(moviesJsonStr);
         JSONArray movies = result.getJSONArray("results");
+
+        Log.d("JSON", movies.toString());
 
         ArrayList<Movie> moviesList = new ArrayList<>();
 
@@ -53,6 +56,15 @@ public class MovieUtil {
 
         if(json.has("runtime")){
             m.setDuration(json.getString("runtime"));
+        }
+
+        if(json.has("genres")){
+            JSONArray genres = json.getJSONArray("genres");
+
+            if(genres.length() > 0){
+                String firstGenre = genres.getJSONObject(0).getString("name");
+                m.setGenre(firstGenre);
+            }
         }
 
         return m;

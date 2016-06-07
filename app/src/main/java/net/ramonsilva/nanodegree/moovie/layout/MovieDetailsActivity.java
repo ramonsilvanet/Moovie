@@ -7,13 +7,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.util.Log;
 
 import com.squareup.picasso.Picasso;
 
 import net.ramonsilva.nanodegree.moovie.R;
 import net.ramonsilva.nanodegree.moovie.model.Movie;
 import net.ramonsilva.nanodegree.moovie.util.MovieFetcher;
+
+import org.w3c.dom.Text;
 
 import java.text.ParseException;
 
@@ -83,9 +87,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
             textViewDuration.setText(movie.getDuration() + " min");
         }
 
-        TextView textViewRating = (TextView) findViewById(R.id.textViewRating);
-        textViewRating.setText(movie.getRating() + "/10");
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        final float ratingAjustado = (float) (movie.getRating() / 2);
+        ratingBar.setRating(ratingAjustado);
 
+        Log.d(LOG_TAG, "Rating " + ratingAjustado);
 
         TextView textViewDescrition = (TextView) findViewById(R.id.textViewDescrition);
 
@@ -97,6 +103,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         TextView textViewOriginal = (TextView) findViewById(R.id.textOriginalTitle);
         textViewOriginal.setText("(" + movie.getOriginalTitle() + ")");
+
+        TextView textViewGenero = (TextView) findViewById(R.id.textGenero);
+        textViewGenero.setText(movie.getGenre());
 
     }
 
